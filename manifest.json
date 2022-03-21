@@ -1,0 +1,19 @@
+{
+    "name": "only_free_books",
+    "description": "Show only free books at book.dmm.com",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": [
+                "https://book.dmm.com/list/*"
+            ],
+            "js": [
+                "src/js/dmm_background.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs"
+    ]
+}
