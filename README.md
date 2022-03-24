@@ -9,6 +9,14 @@ The extension will only work at `https://book.dmm.com/list/*`.
 
 Download the zip file or clone this repository and load the extension at `chrome://extensions/`.
 
+## Features
+
+- Hide books At `https://book.dmm.com/list/*`
+  - Separated volume book
+  - Increased trial book
+  - Owned book
+  - Books in the basket
+
 ## TODO
 
 - [ ] Allow users to select the type of books to display.
