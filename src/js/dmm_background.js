@@ -20,7 +20,7 @@ function main() {
             hide_books(book_box, "Owned");
         }
 
-        let in_basket = book_box.querySelector('div.m-boxListBookProductBtnBlock div.m-boxListBookProductBtnBlock__item--basket a').getAttribute('href') === '/basket/';
+        let in_basket = book_box.querySelector('div.m-boxListBookProductBtnBlock div.m-boxListBookProductBtnBlock__item--basket a')?.getAttribute('href') === '/basket/';
         if (in_basket) {
             hide_books(book_box, "In Basket");
         }
