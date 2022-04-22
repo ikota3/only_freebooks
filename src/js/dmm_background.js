@@ -2,6 +2,14 @@ const RE_SEPARATE_VOLUME = /^.*(分冊版|単話|\s+第?\d+話|話売り|連載�
 const RE_INCREASED_TRIAL = /^.*(試し読み増量|増量版).*$/;
 
 function main() {
+
+    let summary = {
+        separated: 0,
+        increased: 0,
+        owned: 0,
+        in_basket: 0,
+    }
+
     let book_images = document.querySelectorAll('span.m-boxListBookProductTmb__img img');
     for (let i = 0; i < book_images.length; i++) {
         book_box = book_images.item(i).closest('li');
@@ -9,21 +17,29 @@ function main() {
 
         if (RE_SEPARATE_VOLUME.test(book_title)) {
             hide_books(book_box, "Separated Volumes");
+            summary.separated += 1;
         }
 
         if (RE_INCREASED_TRIAL.test(book_title)) {
             hide_books(book_box, "Increased Trial");
+            summary.increased += 1;
         }
 
         let owned = book_box.querySelector('span.m-boxDcPurchased') !== null;
         if (owned) {
             hide_books(book_box, "Owned");
+            summary.owned += 1;
         }
 
         let in_basket = book_box.querySelector('div.m-boxListBookProductBtnBlock div.m-boxListBookProductBtnBlock__item--basket a')?.getAttribute('href') === '/basket/';
         if (in_basket) {
             hide_books(book_box, "In Basket");
+            summary.in_basket += 1;
         }
+    }
+
+    for (key in summary) {
+        console.log(`${key}: ${summary[key]}`);
     }
 }
 
