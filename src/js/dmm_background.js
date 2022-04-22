@@ -1,11 +1,13 @@
 const RE_SEPARATE_VOLUME = /^.*(分冊版|単話|\s+第?\d+話|話売り|連載版|(ばら|バラ)売り?).*$/;
 const RE_INCREASED_TRIAL = /^.*(試し読み増量|増量版).*$/;
+const RE_MICRO = /^.*(【マイクロ】).*/;
 
 function main() {
 
     let summary = {
         separated: 0,
         increased: 0,
+        micro: 0,
         owned: 0,
         in_basket: 0,
     }
@@ -23,6 +25,11 @@ function main() {
         if (RE_INCREASED_TRIAL.test(book_title)) {
             hide_books(book_box, "Increased Trial");
             summary.increased += 1;
+        }
+
+        if (RE_MICRO.test(book_title)) {
+            hide_books(book_box, "Micro");
+            summary.micro += 1;
         }
 
         let owned = book_box.querySelector('span.m-boxDcPurchased') !== null;
