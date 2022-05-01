@@ -1,4 +1,4 @@
-const RE_SEPARATE_VOLUME = /^.*(分冊版|単話|\s+第?\d+話|話売り|連載版|(ばら|バラ)売り?).*$/;
+const RE_SEPARATE_VOLUME = /^.*(分冊版|単話|\s+第?\d+話|\s+ep\.\d+|話売り|連載版|(ばら|バラ)売り?).*$/;
 const RE_INCREASED_TRIAL = /^.*(試し読み増量|増量版).*$/;
 const RE_MICRO = /^.*(【マイクロ】).*/;
 
